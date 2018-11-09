@@ -7,7 +7,6 @@ import {
     Image,
     TouchableHighlight,
     Dimensions,
-    ScrollView,
 } from 'react-native';
 import Header from './_shared_components/Header'
 import Colors from './_constants/Colors';
@@ -30,34 +29,48 @@ export default class HomeScreen extends React.Component {
         return (
             <View style={styles.container}>
 
-                <Header/>
+                <Header />
 
-                <ScrollView>
-                    <View style={{ paddingHorizontal: width * .07, flex: 1 }}>
-                        <View>
-                            <Text style={{ fontSize: 24, fontWeight: '300' }}>Olá,</Text>
-                            <Text style={{ fontSize: 24, fontWeight: '700' }}>Henrique</Text>
-                            <Text style={{ fontSize: 12, fontWeight: '300' }}>Como posso te ajudar?</Text>
-                        </View>
-                        <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', alignContent: 'flex-start' }}>
-                            {
-                                dashboard.map(option =>
-                                    <TouchableHighlight
-                                        key={option.route}
-                                        onPress={() => this.props.navigation.navigate(option.route)}
-                                        underlayColor={Colors.orange}
-                                        style={{ height: height * .22, width: width * .42, }}>
-                                        <View style={{ flex: 1, marginVertical: height * .005, borderWidth: 1, borderColor: Colors.orange, alignItems: 'center', justifyContent: 'center' }}>
-                                            <Text style={{ fontSize: 18, fontWeight: '500' }}>{option.name1.toUpperCase()}</Text>
-                                            <Text style={{ fontSize: 18, fontWeight: '500' }}>{option.name2 && option.name2.toUpperCase()}</Text>
-                                        </View>
-                                    </TouchableHighlight>
-                                )
-                            }
-                            <View style={{ height: height * .25 }}></View>
-                        </View>
+                <View style={{ paddingHorizontal: width * .07, flex: 1 }}>
+                    <View>
+                        <Text style={{ fontSize: 24, fontWeight: '300' }}>Olá,</Text>
+                        <Text style={{ fontSize: 24, fontWeight: '700' }}>Henrique</Text>
+                        <Text style={{ fontSize: 12, fontWeight: '300' }}>Como posso te ajudar?</Text>
                     </View>
-                </ScrollView>
+                    <View style={{ flex: 1, }}>
+                        {
+                            dashboard.map((option, index, array) => {
+                                if (index % 2 === 0)
+                                    return (
+                                        <View key={option.route} style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                            <TouchableHighlight
+                                                onPress={() => this.props.navigation.navigate(option.route)}
+                                                underlayColor={Colors.orange}
+                                                style={{ height: height * .22, width: width * .42, }}>
+                                                <View style={{ flex: 1, marginVertical: height * .005, borderWidth: 1, borderColor: Colors.orange, alignItems: 'center', justifyContent: 'center' }}>
+                                                    <Text style={{ fontSize: 18, fontWeight: '500' }}>{option.name1.toUpperCase()}</Text>
+                                                    <Text style={{ fontSize: 18, fontWeight: '500' }}>{option.name2 && option.name2.toUpperCase()}</Text>
+                                                </View>
+                                            </TouchableHighlight>
+                                            <TouchableHighlight
+                                                key={array[index + 1].route}
+                                                onPress={() => this.props.navigation.navigate(array[index + 1].route)}
+                                                underlayColor={Colors.orange}
+                                                style={{ height: height * .22, width: width * .42, }}>
+                                                <View style={{ flex: 1, marginVertical: height * .005, borderWidth: 1, borderColor: Colors.orange, alignItems: 'center', justifyContent: 'center' }}>
+                                                    <Text style={{ fontSize: 18, fontWeight: '500' }}>{array[index + 1].name1.toUpperCase()}</Text>
+                                                    <Text style={{ fontSize: 18, fontWeight: '500' }}>{array[index + 1].name2 && array[index + 1].name2.toUpperCase()}</Text>
+                                                </View>
+                                            </TouchableHighlight>
+                                        </View>
+                                    )
+                            }
+
+                            )
+                        }
+                        <View style={{ height: height * .25 }}></View>
+                    </View>
+                </View>
             </View>
         );
     }

@@ -9,8 +9,6 @@ import MyWorkoutsScreen from '../workouts/MyWorkoutsScreen';
 import EventsScreen from '../events/EventsScreen';
 
 export default createStackNavigator({
-    // You could add another route here for authentication.
-    // Read more at https://reactnavigation.org/docs/en/auth-flow.html
     Home: HomeScreen,
     Assesments: AssesmentsScreen,
     Tips: TipsScreen,
@@ -18,7 +16,6 @@ export default createStackNavigator({
     NewSchedule: NewScheduleScreen,
     MyWorkouts: MyWorkoutsScreen,
     Events: EventsScreen,
-
 },
     {
         navigationOptions: {

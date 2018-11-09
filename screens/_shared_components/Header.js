@@ -19,7 +19,7 @@ export default class Header extends PureComponent {
                     <TouchableWithoutFeedback
                         style={{ flex: 1, backgroundColor: 'purple' }}
                         onPress={() => this.props.backFunction && this.props.backFunction()}>
-                        <View style={{ flex: 1, alignItems: 'start', paddingHorizontal: 15 }}>
+                        <View style={{ flex: 1, alignItems: 'flex-start', paddingHorizontal: 15 }}>
                             {
                                 this.props.backFunction
                                 &&
