@@ -7,6 +7,9 @@ import {
     Dimensions,
 
 } from 'react-native';
+import {
+    Button
+} from 'native-base'
 import Header from './_shared_components/Header'
 import Menu from './_shared_components/Menu'
 import Colors from './_constants/Colors';
@@ -29,7 +32,7 @@ export default class HomeScreen extends React.Component {
         return (
             <View style={styles.container}>
 
-                <Header />
+                <Header logo nav={this.props.navigation.navigate}/>
 
                 <View style={{ paddingHorizontal: width * .07, flex: 1, zIndex: -1 }}>
                     <View>
@@ -43,9 +46,14 @@ export default class HomeScreen extends React.Component {
                                 if (index % 2 === 0)
                                     return (
                                         <View key={option.route} style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                                            <TouchableHighlight
+                                            <Button transparent
                                                 onPress={() => this.props.navigation.navigate(option.route)}
-                                                underlayColor={Colors.orange}
+                                                style={{ width: width*.4, height: height*.22, justifyContent: 'center', alignItems: 'center',
+                                                        borderColor: Colors.orange, borderWidth: 1 }}>
+                                                <Text>{`${option.name1}\n${option.name2}`}</Text>
+                                            </Button>
+                                            {/* <TouchableHighlight
+                                                onPress={() => this.props.navigation.navigate(option.route)}
                                                 style={{ height: height * .22, width: width * .42, }}>
                                                 <View style={{ flex: 1, marginVertical: height * .005, borderWidth: 1, borderColor: Colors.orange, alignItems: 'center', justifyContent: 'center' }}>
                                                     <Text style={{ fontSize: 18, fontWeight: '500' }}>{option.name1.toUpperCase()}</Text>
@@ -55,13 +63,12 @@ export default class HomeScreen extends React.Component {
                                             <TouchableHighlight
                                                 key={array[index + 1].route}
                                                 onPress={() => this.props.navigation.navigate(array[index + 1].route)}
-                                                underlayColor={Colors.orange}
                                                 style={{ height: height * .22, width: width * .42, }}>
                                                 <View style={{ flex: 1, marginVertical: height * .005, borderWidth: 1, borderColor: Colors.orange, alignItems: 'center', justifyContent: 'center' }}>
                                                     <Text style={{ fontSize: 18, fontWeight: '500' }}>{array[index + 1].name1.toUpperCase()}</Text>
                                                     <Text style={{ fontSize: 18, fontWeight: '500' }}>{array[index + 1].name2 && array[index + 1].name2.toUpperCase()}</Text>
                                                 </View>
-                                            </TouchableHighlight>
+                                            </TouchableHighlight> */}
                                         </View>
                                     )
                             }

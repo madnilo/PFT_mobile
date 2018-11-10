@@ -5,7 +5,7 @@ import {
     SafeAreaView,
     Image,
     TouchableWithoutFeedback,
-    Animated,
+
     Dimensions,
     Platform,
 } from 'react-native'
@@ -17,21 +17,26 @@ const ios = Platform.OS === 'ios'
 
 export default class Header extends PureComponent {
     state = {
-        menuAnim: new Animated.Value(0),
+        // menuAnim: new Animated.Value(0),
         openedMenu: false,
     }
 
     toggleMenu = () => {
-        const { menuAnim, openedMenu } = this.state
-        this.setState({ openedMenu: !openedMenu})
+        // const { menuAnim, openedMenu } = this.state
+        this.setState({ openedMenu: !this.state.openedMenu})
 
-        Animated.timing(
-            menuAnim,
-            {
-                toValue: openedMenu ? 0 : 1,
-                duration: 100
-            }
-        ).start()
+        // Animated.timing(
+        //     menuAnim,
+        //     {
+        //         toValue: openedMenu ? 0 : 1,
+        //         duration: 100
+        //     }
+        // ).start()
+    }
+
+    handleMenuNav = (screen) => {
+        this.setState({ openedMenu: false })
+        this.props.nav(screen)
     }
 
     render() {
@@ -54,7 +59,11 @@ export default class Header extends PureComponent {
                     </TouchableWithoutFeedback>
 
                     <View style={{ flex: 2.5, alignItems: 'center' }}>
+                    {
+                        this.props.logo
+                        &&
                         <Image source={require('../../assets/images/marcanova.png')} style={{ width: 150 }} resizeMode='contain' />
+                    }
                     </View>
 
                     <TouchableWithoutFeedback style={{ flex: 1, backgroundColor: 'red' }} onPress={() => this.toggleMenu()}>
@@ -74,13 +83,19 @@ export default class Header extends PureComponent {
                 {
                     openedMenu
                     &&
-                    <Animated.View style={{ backgroundColor: Colors.orange, top: height*.12, position: 'absolute', width: '100%', height: height*.3, zIndex: 1, elevation: 3 }}>
+                    <View style={{ backgroundColor: Colors.orange, top: height*.12, position: 'absolute', width: '100%', height: height*.3, zIndex: 1, elevation: 3 }}>
                         <View style={{ flex: 1, justifyContent: 'space-around', alignItems: 'center', paddingVertical: 20 }}>
-                            <Text style={{ fontWeight: '900', fontSize: 28, color: Colors.black }}>HOME</Text>
-                            <Text style={{ fontWeight: '900', fontSize: 28, color: Colors.black }}>MINHA CONTA</Text>
-                            <Text style={{ fontWeight: '900', fontSize: 28, color: Colors.black }}>SAIR</Text>
+                            <TouchableWithoutFeedback onPress={() => this.handleMenuNav('Home')}>
+                                <Text style={{ fontWeight: '900', fontSize: 28, color: Colors.black }}>HOME</Text>
+                            </TouchableWithoutFeedback>
+                            <TouchableWithoutFeedback onPress={() => this.handleMenuNav('MyProfile')}>
+                                <Text style={{ fontWeight: '900', fontSize: 28, color: Colors.black }}>MINHA CONTA</Text>
+                            </TouchableWithoutFeedback>
+                            <TouchableWithoutFeedback onPress={() => this.handleMenuNav('Tips')}>
+                                <Text style={{ fontWeight: '900', fontSize: 28, color: Colors.black }}>SAIR</Text>
+                            </TouchableWithoutFeedback>
                         </View>
-                    </Animated.View>
+                    </View>
                 }
             </SafeAreaView>
         )

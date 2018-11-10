@@ -7,6 +7,7 @@ import MyScheduleScreen from '../schedules/MyScheduleScreen';
 import NewScheduleScreen from '../schedules/NewScheduleScreen';
 import MyWorkoutsScreen from '../workouts/MyWorkoutsScreen';
 import EventsScreen from '../events/EventsScreen';
+import MyProfileScreen from '../profile/MyProfileScreen';
 
 export default createStackNavigator({
     Home: HomeScreen,
@@ -16,6 +17,7 @@ export default createStackNavigator({
     NewSchedule: NewScheduleScreen,
     MyWorkouts: MyWorkoutsScreen,
     Events: EventsScreen,
+    MyProfile: MyProfileScreen,
 },
     {
         navigationOptions: {
