@@ -3,12 +3,12 @@ import {
     StyleSheet,
     Text,
     View,
-    SafeAreaView,
-    Image,
     TouchableHighlight,
     Dimensions,
+
 } from 'react-native';
 import Header from './_shared_components/Header'
+import Menu from './_shared_components/Menu'
 import Colors from './_constants/Colors';
 import window from './_constants/Layout'
 
@@ -31,7 +31,7 @@ export default class HomeScreen extends React.Component {
 
                 <Header />
 
-                <View style={{ paddingHorizontal: width * .07, flex: 1 }}>
+                <View style={{ paddingHorizontal: width * .07, flex: 1, zIndex: -1 }}>
                     <View>
                         <Text style={{ fontSize: 24, fontWeight: '300' }}>Olá,</Text>
                         <Text style={{ fontSize: 24, fontWeight: '700' }}>Henrique</Text>
