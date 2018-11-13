@@ -12,7 +12,8 @@ export default class EventsScreen extends Component {
         return (
             <View style={styles.container}>
                 <Header
-                    backFunction={this.props.navigation.goBack}/>
+                    nav={this.props.navigation.navigate}
+                    backFunction={this.props.navigation.goBack} />
                 <View styles={{ flex: 1 }}>
                     <Text> events </Text>
                 </View>

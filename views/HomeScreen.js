@@ -29,9 +29,9 @@ export default class HomeScreen extends React.Component {
         return (
             <View style={styles.container}>
 
-                <Header />
+                <Header nav={this.props.navigation.navigate}/>
 
-                <View style={{ paddingHorizontal: width * .07, flex: 1, zIndex: -1 }}>
+                <View style={{ paddingHorizontal: width * .07, flex: 1,  }}>
                     <View>
                         <Text style={{ fontSize: 24, fontWeight: '300' }}>Olá,</Text>
                         <Text style={{ fontSize: 24, fontWeight: '700' }}>Henrique</Text>

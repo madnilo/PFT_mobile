@@ -1,8 +1,8 @@
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
-import AppNavigator from './screens/_navigation/AppNavigator';
-import Colors from './screens/_constants/Colors'
+import AppNavigator from './views/_navigation/AppNavigator';
+import Colors from './views/_constants/Colors'
 
 const ios = Platform.OS === 'ios'
 

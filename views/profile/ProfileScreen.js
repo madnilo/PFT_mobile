@@ -7,14 +7,15 @@ import {
 import Header from '../_shared_components/Header'
 import Colors from '../_constants/Colors'
 
-export default class MyWorkoutsScreen extends Component {
+export default class ProfileScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
                 <Header
-                    backFunction={this.props.navigation.goBack}/>
+                    nav={this.props.navigation.navigate}
+                    backFunction={this.props.navigation.goBack} />
                 <View styles={{ flex: 1 }}>
-                    <Text> my workouts screen </Text>
+                    <Text> Meu perfil </Text>
                 </View>
             </View>
         )

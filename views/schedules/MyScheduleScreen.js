@@ -7,14 +7,15 @@ import {
 import Header from '../_shared_components/Header'
 import Colors from '../_constants/Colors'
 
-export default class NewScheduleScreen extends Component {
+export default class MyScheduleScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
                 <Header
-                    backFunction={this.props.navigation.goBack}/>
+                    nav={this.props.navigation.navigate}
+                    backFunction={this.props.navigation.goBack} />
                 <View styles={{ flex: 1 }}>
-                    <Text> new schedule </Text>
+                    <Text> my schedule </Text>
                 </View>
             </View>
         )

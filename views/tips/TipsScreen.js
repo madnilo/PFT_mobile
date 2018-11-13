@@ -7,14 +7,15 @@ import {
 import Header from '../_shared_components/Header'
 import Colors from '../_constants/Colors'
 
-export default class AssesmentScreen extends Component {
+export default class TipsScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
                 <Header
-                    backFunction={this.props.navigation.goBack}/>
+                    nav={this.props.navigation.navigate}
+                    backFunction={this.props.navigation.goBack} />
                 <View styles={{ flex: 1 }}>
-                    <Text> assesment </Text>
+                    <Text> tips screen </Text>
                 </View>
             </View>
         )
