@@ -15,7 +15,7 @@ export default class MyScheduleScreen extends Component {
                     nav={this.props.navigation.navigate}
                     backFunction={this.props.navigation.goBack} />
                 <View styles={{ flex: 1 }}>
-                    <Text> my schedule </Text>
+                <Text style={{ color: Colors.orange, fontSize: 32}}> Meus Horários </Text>
                 </View>
             </View>
         )

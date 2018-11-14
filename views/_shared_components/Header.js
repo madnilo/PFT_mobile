@@ -99,7 +99,7 @@ export default class Header extends PureComponent {
                                     <TouchableWithoutFeedback onPress={() => this.handleNav('Profile')}>
                                         <Text style={{ fontWeight: '900', fontSize: 28, color: Colors.black }}>MINHA CONTA</Text>
                                     </TouchableWithoutFeedback>
-                                    <TouchableWithoutFeedback onPress={() => this.handleNav('Home')}>
+                                    <TouchableWithoutFeedback onPress={() => this.handleNav('Login')}>
                                         <Text style={{ fontWeight: '900', fontSize: 28, color: Colors.black }}>SAIR</Text>
                                     </TouchableWithoutFeedback>
                                     </View>

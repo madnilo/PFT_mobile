@@ -27,7 +27,7 @@
             "supportsTablet": true
         },
         "androidStatusBar":{
-            "backgroundColor": "#ffffff",
+            "backgroundColor": "#000000",
             "barStyle": "dark-content"
         }
     }

@@ -15,7 +15,7 @@ export default class NewScheduleScreen extends Component {
                     nav={this.props.navigation.navigate}
                     backFunction={this.props.navigation.goBack} />
                 <View styles={{ flex: 1 }}>
-                    <Text> new schedule </Text>
+                <Text style={{ color: Colors.orange, fontSize: 32}}> Novo Horário </Text>
                 </View>
             </View>
         )

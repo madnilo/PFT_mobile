@@ -15,7 +15,7 @@ export default class ProfileScreen extends Component {
                     nav={this.props.navigation.navigate}
                     backFunction={this.props.navigation.goBack} />
                 <View styles={{ flex: 1 }}>
-                    <Text> Meu perfil </Text>
+                <Text style={{ color: Colors.orange, fontSize: 32}}> Minha Conta </Text>
                 </View>
             </View>
         )

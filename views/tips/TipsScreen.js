@@ -15,7 +15,7 @@ export default class TipsScreen extends Component {
                     nav={this.props.navigation.navigate}
                     backFunction={this.props.navigation.goBack} />
                 <View styles={{ flex: 1 }}>
-                    <Text> tips screen </Text>
+                <Text style={{ color: Colors.orange, fontSize: 32}}>Dicas de Saúde </Text>
                 </View>
             </View>
         )

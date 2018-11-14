@@ -15,7 +15,7 @@ export default class MyWorkoutsScreen extends Component {
                     nav={this.props.navigation.navigate}
                     backFunction={this.props.navigation.goBack} />
                 <View styles={{ flex: 1 }}>
-                    <Text> my workouts screen </Text>
+                <Text style={{ color: Colors.orange, fontSize: 32}}> Meus Treinos </Text>
                 </View>
             </View>
         )

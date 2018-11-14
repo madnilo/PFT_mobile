@@ -1,8 +1,12 @@
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
-import AppNavigator from './views/_navigation/AppNavigator';
+import AuthNavigator from './views/_navigation/AuthNavigator';
 import Colors from './views/_constants/Colors'
+import {Provider} from 'react-redux'
+import {createStore, applyMiddleware} from 'redux'
+import thunk from 'redux-thunk'
+import authReducer from './state/auth/reducers'
 
 const ios = Platform.OS === 'ios'
 
@@ -22,15 +26,17 @@ export default class App extends React.Component {
             );
         } else {
             return (
-                <View style={styles.container}>
-                    {ios
-                        ?
-                        <StatusBar barStyle="light-content" />
-                        :
-                        <StatusBar backgroundColor={Colors.statusBarAndroid} barStyle="light-content" />
-                    }
-                    <AppNavigator />
-                </View>
+                <Provider store={createStore(authReducer, applyMiddleware(thunk))}>
+                    <View style={styles.container}>
+                        {ios
+                            ?
+                            <StatusBar barStyle="light-content" />
+                            :
+                            <StatusBar backgroundColor={Colors.statusBarAndroid} barStyle="light-content" />
+                        }
+                        <AuthNavigator />
+                    </View>
+                </Provider>
             );
         }
     }
