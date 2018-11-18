@@ -1,11 +1,12 @@
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
-import AuthNavigator from './views/_navigation/AuthNavigator';
-import Colors from './views/_constants/Colors'
-import {Provider} from 'react-redux'
-import {createStore, applyMiddleware} from 'redux'
+import AuthNavigator from './screens/_navigation/AuthNavigator';
+import Colors from './screens/_constants/Colors'
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
+import { Root } from 'native-base'
 import authReducer from './state/auth/reducers'
 
 const ios = Platform.OS === 'ios'
@@ -27,7 +28,7 @@ export default class App extends React.Component {
         } else {
             return (
                 <Provider store={createStore(authReducer, applyMiddleware(thunk))}>
-                    <View style={styles.container}>
+                    <Root style={styles.container}>
                         {ios
                             ?
                             <StatusBar barStyle="light-content" />
@@ -35,7 +36,7 @@ export default class App extends React.Component {
                             <StatusBar backgroundColor={Colors.statusBarAndroid} barStyle="light-content" />
                         }
                         <AuthNavigator />
-                    </View>
+                    </Root>
                 </Provider>
             );
         }
@@ -52,7 +53,8 @@ export default class App extends React.Component {
                 ...Icon.Ionicons.font,
                 // We include SpaceMono because we use it in HomeScreen.js. Feel free
                 // to remove this if you are not using it in your app
-                'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
+                'Roboto': require('native-base/Fonts/Roboto.ttf'),
+                'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
             }),
         ]);
     };

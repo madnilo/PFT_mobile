@@ -1,24 +1,24 @@
-import actions from './actions'
+import types from './types'
 
-// state = {
-//      user: {},
-//      loginLoading: false
-//      token: '12323123'
-//      loginErr: null
-// }
+const initialSate = {
+    loginLoading: false,
+    authorized: false,
+    token: null,
+    loginErrors: null,
+}
 
-const authReducer = (state = {}, action) => {
+const authReducer = (state = initialSate, action) => {
     switch (action.type) {
-        case actions.LOGIN_STARTED:
-            return { user: null, loginLoading: true, token: null }
-        case actions.LOGIN_SUCCESS:
-            return { user: action.user, loginLoading: false, token: action.token }
-        case actions.LOGIN_FAILED:
-            return { user: null, loginLoading: false, token: null, loginErr: action.err }
-        case actions.LOGOUT:
-            return { user: null, loginLoading: null, token: null }
+        case types.LOGIN_STARTED:
+            return { ...state, loginLoading: true, loginErrors: null, }
+        case types.LOGIN_SUCCESS:
+            return { ...state, loginLoading: false, authorized: true, token: action.token, loginErrors: null, }
+        case types.LOGIN_FAILED:
+            return { ...state, loginLoading: false, authorized: false, token: null, loginErrors: action.err}
+        case types.LOGOUT:
+            return { ...state, authorized: false, token: null, loginErrors: null, }
         default:
-            return { user: null, loginLoading: null, token: null }
+            return initialSate
     }
 }
 

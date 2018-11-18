@@ -1,15 +1,15 @@
 {
     "expo": {
-        "name": "power-fit_mobile",
-        "description": "A very interesting project.",
-        "slug": "power-fit_mobile",
+        "name": "PowerFit",
+        "description": "-Fixed menu on android",
+        "slug": "power-fit",
         "privacy": "public",
         "sdkVersion": "31.0.0",
         "platforms": [
             "ios",
             "android"
         ],
-        "version": "1.0.0",
+        "version": "0.0.3",
         "orientation": "portrait",
         "icon": "./assets/images/icon.png",
         "splash": {
@@ -24,9 +24,13 @@
             "**/*"
         ],
         "ios": {
-            "supportsTablet": true
+            "supportsTablet": true,
+            "bundleIdentifier": "com.skymotion.powerfit"
         },
-        "androidStatusBar":{
+        "android": {
+            "package": "com.skymotion.powerfit"
+        },
+        "androidStatusBar": {
             "backgroundColor": "#000000",
             "barStyle": "dark-content"
         }
