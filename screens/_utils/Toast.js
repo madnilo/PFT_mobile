@@ -1,21 +1,20 @@
-import { Toast } from 'native-base'
+import Toast from 'react-native-root-toast'
 import Colors from '../_constants/Colors';
 
-topToast = (msg) => showToast(msg, 'top')
+topToast = (msg) => showToast(msg, Toast.positions.TOP)
 
-bottomToast = (msg) => showToast(msg, 'bottom')
+bottomToast = (msg) => showToast(msg, Toast.positions.BOTTOM)
 
 showToast = (msg, position) => {
-    Toast.show({
-        text: msg instanceof Array && msg.length > 1
-                ? msg.map(str => `${str}\n`)
-                : msg instanceof Array && msg.length == 1
-                    ? msg[0]
-                    : msg,
-        buttonText: "OK",
+    Toast.show(msg, {
+        duration: Toast.durations.LONG,
         position: position,
-        style: { backgroundColor: Colors.orange },
-        duration: 2000,
+        shadow: false,
+        animation: true,
+        hideOnPress: true,
+        delay: 0,
+        opacity: 1,
+        backgroundColor: Colors.orange,
     })
 }
 

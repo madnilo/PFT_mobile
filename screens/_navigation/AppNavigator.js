@@ -8,11 +8,13 @@ import NewScheduleScreen from '../schedules/NewScheduleScreen';
 import MyWorkoutsScreen from '../workouts/MyWorkoutsScreen';
 import EventsScreen from '../events/EventsScreen';
 import ProfileScreen from '../profile/ProfileScreen';
+import ArticleScreen from '../tips/ArticleScreen';
 
 export default createStackNavigator({
     Home: HomeScreen,
-    Assesments: AssesmentsScreen,
     Tips: TipsScreen,
+    Article: ArticleScreen,
+    Assesments: AssesmentsScreen,
     MySchedule: MyScheduleScreen,
     NewSchedule: NewScheduleScreen,
     MyWorkouts: MyWorkoutsScreen,

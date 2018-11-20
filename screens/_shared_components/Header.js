@@ -45,7 +45,7 @@ class Header extends Component {
         const { backFunction } = this.props
 
         return (
-            <SafeAreaView style={[{ backgroundColor: Colors.black, width: '100%', height: height * .12, borderBottomColor: 'grey', borderBottomWidth: ios ? 1 : 0, elevation: 3 }, openedMenu ? { zIndex: 2 } : null]}>
+            <SafeAreaView style={[{ backgroundColor: Colors.black, width: '100%', height: height * .12, borderBottomColor: '#111111', borderBottomWidth: ios ? 1 : 0, elevation: 3 }, openedMenu ? { zIndex: 2 } : null]}>
                 <View style={{ flex: 1, alignItems: 'center', flexDirection: 'row' }}>
 
                     <TouchableWithoutFeedback

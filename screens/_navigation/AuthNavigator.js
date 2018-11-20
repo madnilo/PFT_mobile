@@ -4,8 +4,8 @@ import LoginScreen from '../auth/LoginScreen'
 import AppNavigator from './AppNavigator'
 
 export default createSwitchNavigator({
-    Login: LoginScreen,
     Start: AppNavigator,
+    Login: LoginScreen,
 },
     {
         navigationOptions: {

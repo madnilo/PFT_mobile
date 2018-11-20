@@ -1,19 +1,17 @@
 import React, { Component } from 'react'
 import {
-    Text,
-    TextInput,
     View,
     SafeAreaView,
     Image,
-    TouchableHighlight,
     Dimensions,
     KeyboardAvoidingView,
-    ActivityIndicator,
 } from 'react-native'
-import Colors from '../_constants/Colors';
-import auth from '../../state/auth/operations'
+import authOps from '../../state/auth/operations'
 import { connect } from 'react-redux'
 import Toast from '../_utils/Toast'
+import StyledInput from './_components/StyledInput';
+import MainButton from './_components/MainButton';
+import SecondaryButton from './_components/SecondaryButton';
 
 const { width, height } = Dimensions.get('window')
 
@@ -74,43 +72,24 @@ class LoginScreen extends Component {
 
                         <KeyboardAvoidingView style={{ width: width * .65, height: height * .28, alignItems: 'stretch', justifyContent: 'space-around' }}>
 
-                            <TextInput
+                            <StyledInput
                                 placeholder='E-MAIL'
-                                placeholderTextColor={Colors.text}
-                                style={{ borderColor: Colors.orange, borderWidth: 1, borderRadius: 10, height: 45, color: Colors.text, padding: 10 }}
                                 value={email}
-                                onChangeText={(email) => this.setState({ email })}>
+                                onChangeText={(email) => this.setState({ email })} />
 
-                            </TextInput>
-
-                            <TextInput
+                            <StyledInput
                                 placeholder='SENHA'
                                 secureTextEntry={true}
-                                placeholderTextColor={Colors.text}
-                                style={{ borderColor: Colors.orange, borderWidth: 1, borderRadius: 10, height: 45, color: Colors.text, padding: 10 }}
                                 value={password}
-                                onChangeText={(password) => this.setState({ password })}>
+                                onChangeText={(password) => this.setState({ password })} />
 
-                            </TextInput>
+                            <MainButton
+                                loginLoading={ loginLoading }
+                                onPress={() => !loginLoading && this.handleLogin()} />
 
-                            <TouchableHighlight underlayColor={Colors.underlayOrange}
-                                onPress={() => this.handleLogin()}
-                                style={{ backgroundColor: Colors.orange, height: 45, borderRadius: 10, justifyContent: 'center', alignItems: 'center' }}>
-                                {
-                                    loginLoading
-                                        ?
-                                        <ActivityIndicator size='small' color={Colors.white} />
-                                        :
-                                        <Text style={{ marginLeft: 10, color: Colors.white, fontSize: 14 }}>ENTRAR</Text>
-                                }
-                            </TouchableHighlight>
-
-                            <TouchableHighlight
-                                activeOpacity={.8}
-                                underlayColor='transparent'
-                                onPress={() => console.log('press')}>
-                                <Text style={{ color: Colors.text, fontSize: 14 }}>Esqueci minha senha.</Text>
-                            </TouchableHighlight>
+                            <SecondaryButton
+                                text= 'Esqueci minha senha.'
+                                onPress={() => console.log('press')} />
 
                         </KeyboardAvoidingView>
                     </View>
@@ -122,17 +101,18 @@ class LoginScreen extends Component {
 }
 
 function mapStateToProps(state) {
+    const { token, loginLoading, loginErrors } = state.auth
     return {
-        token: state.token,
-        loginLoading: state.loginLoading,
-        loginErrors: state.loginErrors,
+        token,
+        loginLoading,
+        loginErrors,
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        login: (user, pwd) => dispatch(auth.login(user, pwd)),
-        clearErrors: () => dispatch(auth.clearLoginErrorMessage())
+        login: (user, pwd) => dispatch(authOps.login(user, pwd)),
+        clearErrors: () => dispatch(authOps.clearLoginErrorMessage())
     }
 }
 

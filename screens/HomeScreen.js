@@ -7,10 +7,8 @@ import {
     Dimensions,
 
 } from 'react-native';
-import Header from './_shared_components/Header'
-import Menu from './_shared_components/Menu'
+import { Header, TextBold, TextSubtext, TextLight, Container, Content } from './_shared_components'
 import Colors from './_constants/Colors';
-import window from './_constants/Layout'
 
 const dashboard = [
     { name1: 'Meus', name2: 'Horários', route: 'MySchedule' },
@@ -27,15 +25,16 @@ export default class HomeScreen extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <Container>
 
                 <Header nav={this.props.navigation.navigate}/>
 
-                <View style={{ paddingHorizontal: width * .07, flex: 1,  }}>
+                <Content>
                     <View>
-                        <Text style={{ fontSize: 24, fontWeight: '300' }}>Olá,</Text>
-                        <Text style={{ fontSize: 24, fontWeight: '700' }}>Henrique</Text>
-                        <Text style={{ fontSize: 12, fontWeight: '300' }}>Como posso te ajudar?</Text>
+                        {/* TODO obter dados do usuario e substituir o nome */}
+                        <TextLight text='Olá' />
+                        <TextBold text='Henrique' />
+                        <TextSubtext text='Como posso te ajudar?' />
                     </View>
                     <View style={{ flex: 1, }}>
                         {
@@ -70,8 +69,8 @@ export default class HomeScreen extends React.Component {
                         }
                         <View style={{ height: height * .25 }}></View>
                     </View>
-                </View>
-            </View>
+                </Content>
+            </Container>
         );
     }
 }

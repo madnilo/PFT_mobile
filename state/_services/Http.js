@@ -7,12 +7,11 @@ export const Http = axios.create({
 
 Http.interceptors.response.use(
     (res) => {
-        console.log('status ', res.status)
-        console.log('data ', res.data)
+        console.log('req status ', res.status)
         return res
     },
     (error) => {
-        console.log('err ', error.response.data)
+        console.log('req err ', error.response.data)
         return Promise.reject(error.response.data)
     }
 )

@@ -4,14 +4,17 @@ import { AppLoading, Asset, Font, Icon } from 'expo';
 import AuthNavigator from './screens/_navigation/AuthNavigator';
 import Colors from './screens/_constants/Colors'
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
-import { Root } from 'native-base'
-import authReducer from './state/auth/reducers'
+import { Store } from './state/Store'
 
 const ios = Platform.OS === 'ios'
 
 export default class App extends React.Component {
+    constructor(){
+        super()
+
+        global.BASE_IMAGES = 'https://powerfit.agenciaacerte.com'
+    }
+
     state = {
         isLoadingComplete: false,
     };
@@ -27,8 +30,8 @@ export default class App extends React.Component {
             );
         } else {
             return (
-                <Provider store={createStore(authReducer, applyMiddleware(thunk))}>
-                    <Root style={styles.container}>
+                <Provider store={Store}>
+                    <View style={styles.container}>
                         {ios
                             ?
                             <StatusBar barStyle="light-content" />
@@ -36,7 +39,7 @@ export default class App extends React.Component {
                             <StatusBar backgroundColor={Colors.statusBarAndroid} barStyle="light-content" />
                         }
                         <AuthNavigator />
-                    </Root>
+                    </View>
                 </Provider>
             );
         }
@@ -51,10 +54,9 @@ export default class App extends React.Component {
             Font.loadAsync({
                 // This is the font that we are using for our tab bar
                 ...Icon.Ionicons.font,
+                ...Icon.MaterialCommunityIcons.font,
                 // We include SpaceMono because we use it in HomeScreen.js. Feel free
                 // to remove this if you are not using it in your app
-                'Roboto': require('native-base/Fonts/Roboto.ttf'),
-                'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
             }),
         ]);
     };
