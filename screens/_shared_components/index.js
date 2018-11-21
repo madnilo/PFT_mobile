@@ -7,6 +7,7 @@ import TextLight from './TextLight'
 import TextSubtext from './TextSubtext'
 import Container from './Container'
 import Content from './Content'
+import YoutubeVideo from './YoutubeVideo'
 
 export {
     ButtonPrimary,
@@ -18,4 +19,5 @@ export {
     TextSubtext,
     Container,
     Content,
+    YoutubeVideo
 }

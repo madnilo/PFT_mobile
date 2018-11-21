@@ -8,7 +8,7 @@ const getAssesment = () => (dispatch, getState) => {
             "Authorization": `bearer ${getState().auth.token}`
         }
     })
-        .then(res => dispatch(actions.getAssesmentFinish(res)))
+        .then(res => dispatch(actions.getAssesmentFinish(res.data.data)))
 }
 
 const getTips = () => (dispatch) => {

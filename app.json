@@ -1,38 +1,38 @@
 {
-    "expo": {
-        "name": "PowerFit",
-        "description": "-Fixed menu on android",
-        "slug": "power-fit",
-        "privacy": "public",
-        "sdkVersion": "31.0.0",
-        "platforms": [
-            "ios",
-            "android"
-        ],
-        "version": "0.0.3",
-        "orientation": "portrait",
-        "icon": "./assets/images/icon.png",
-        "splash": {
-            "image": "./assets/images/splash.png",
-            "resizeMode": "cover",
-            "backgroundColor": "#ffffff"
-        },
-        "updates": {
-            "fallbackToCacheTimeout": 0
-        },
-        "assetBundlePatterns": [
-            "**/*"
-        ],
-        "ios": {
-            "supportsTablet": true,
-            "bundleIdentifier": "com.skymotion.powerfit"
-        },
-        "android": {
-            "package": "com.skymotion.powerfit"
-        },
-        "androidStatusBar": {
-            "backgroundColor": "#000000",
-            "barStyle": "dark-content"
-        }
+  "expo": {
+    "name": "PowerFit",
+    "description": "Release\n\n-Tela de avaliação física\n-Tela de dicas de saúde\n-Tela de artigo (com vídeo)",
+    "slug": "power-fit",
+    "privacy": "public",
+    "sdkVersion": "31.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "0.0.3",
+    "orientation": "portrait",
+    "icon": "./assets/images/512.png",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.skymotion.powerfit"
+    },
+    "android": {
+      "package": "com.skymotion.powerfit"
+    },
+    "androidStatusBar": {
+      "backgroundColor": "#000000",
+      "barStyle": "dark-content"
     }
+  }
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {
     Text,
     View,
@@ -6,13 +6,13 @@ import {
 } from 'react-native'
 import Colors from '../../_constants/Colors'
 
-export default class CardInfo extends Component {
+export default class CardInfo extends PureComponent {
     render() {
         return (
             <View>
                 <View style={ styles.card }>
-                    <Text style={ styles.info }> PA Repouso </Text>
-                    <Text style={ styles.value }> 15mm </Text>
+                    <Text adjustsFontSizeToFit={true} numberOfLines={1} style={ styles.info }> {this.props.text} </Text>
+                    <Text adjustsFontSizeToFit={true} numberOfLines={1} style={ styles.value }> {this.props.value} </Text>
                 </View>
             </View>
         )
@@ -32,11 +32,14 @@ const styles = StyleSheet.create({
     info:{
         color: Colors.text,
         fontSize: 14,
-        fontWeight: '800'
+        fontWeight: '800',
+        width: '80%'
     },
     value:{
         color: Colors.text,
         fontSize: 14,
-        fontWeight: '400'
+        fontWeight: '400',
+        width: '20%',
+        textAlign: 'right'
     }
 })

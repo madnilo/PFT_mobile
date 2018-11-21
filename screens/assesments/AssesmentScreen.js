@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
 import {
-    Text,
-    View,
+    ScrollView,
     StyleSheet,
     Dimensions,
+    SafeAreaView,
 } from 'react-native'
-import Header from '../_shared_components/Header'
-import Colors from '../_constants/Colors'
-import TextBold from '../_shared_components/TextBold';
-import TextSubtext from '../_shared_components/TextSubtext';
+import { Header, Container, Content, TextBold, TextSubtext, Spinner } from '../_shared_components'
 import CardInfo from './_components/CardInfo';
 import { connect } from 'react-redux'
 import generalOps from '../../state/general/operations'
@@ -21,37 +18,50 @@ class AssesmentScreen extends Component {
     }
 
     render() {
+        const { assesment: { loading, data } } = this.props
+        if (loading)
+            return (
+                <Container>
+                    <Header
+                        nav={this.props.navigation.navigate}
+                        backFunction={this.props.navigation.goBack} />
+                    <Spinner />
+                </Container>
+            )
+
+        let attr = data.attributes
         return (
-            <View style={styles.container}>
+            <Container>
                 <Header
                     nav={this.props.navigation.navigate}
                     backFunction={this.props.navigation.goBack} />
+                <ScrollView>
+                    <Content>
+                        <SafeAreaView>
+                            <TextBold text='Avaliação Física' />
+                            <TextSubtext text='Veja aqui a sua avaliação física.' />
 
-                <View style={{ paddingHorizontal: width * .07, flex: 1, }}>
-                    <TextBold text='Avaliação Física' />
-                    <TextSubtext text='Veja aqui a sua avaliação física.' />
+                            {
+                                Object.keys(attr)
+                                    .map(prop => <CardInfo key={prop} text={attr[prop].name} value={attr[prop].value} />)
+                            }
 
-                    <CardInfo />
-
-                </View>
-            </View>
+                        </SafeAreaView>
+                    </Content>
+                </ScrollView>
+            </Container>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: Colors.background,
-    }
+
 });
 
 
 function mapStateToProps(state) {
-    console.log(state)
     return {
-        //TODO fix it
-        assesment: state.general,
+        assesment: state.assesment,
     }
 }
 

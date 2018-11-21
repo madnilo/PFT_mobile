@@ -7,7 +7,7 @@ export const Store = createStore(
     combineReducers({
         auth: authReducer,
         tips: tipsReducer,
-        aseesment: assesmentReducer,
+        assesment: assesmentReducer,
     }),
     applyMiddleware(thunkMiddleware)
 )
