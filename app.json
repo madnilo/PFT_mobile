@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "PowerFit",
-    "description": "Release\n\n-Tela de avaliação física\n-Tela de dicas de saúde\n-Tela de artigo (com vídeo)",
+    "description": "- Beta tela de eventos",
     "slug": "power-fit",
     "privacy": "public",
     "sdkVersion": "31.0.0",

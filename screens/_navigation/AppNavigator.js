@@ -12,17 +12,15 @@ import ArticleScreen from '../tips/ArticleScreen';
 
 export default createStackNavigator({
     Home: HomeScreen,
+    Events: EventsScreen,
     Tips: TipsScreen,
     Article: ArticleScreen,
     Assesments: AssesmentsScreen,
     MySchedule: MyScheduleScreen,
     NewSchedule: NewScheduleScreen,
     MyWorkouts: MyWorkoutsScreen,
-    Events: EventsScreen,
     Profile: ProfileScreen,
 },
     {
-        navigationOptions: {
-            header: null,
-        }
+        headerMode: 'none',
     });

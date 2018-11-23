@@ -42,7 +42,7 @@ class Header extends Component {
 
     render() {
         let { openedMenu } = this.state
-        const { backFunction } = this.props
+        const { backFunction, home } = this.props
 
         return (
             <SafeAreaView style={[{ backgroundColor: Colors.black, width: '100%', height: height * .12, borderBottomColor: 'grey', borderBottomWidth: ios ? 1 : 0, elevation: 3 }, openedMenu ? { zIndex: 2 } : null]}>
@@ -61,7 +61,10 @@ class Header extends Component {
                     </TouchableWithoutFeedback>
 
                     <View style={{ flex: 2.5, alignItems: 'center' }}>
-                        <Image source={require('../../assets/images/marcanova.png')} style={{ width: 150 }} resizeMode='contain' />
+                        {
+                            // home &&
+                            <Image source={require('../../assets/images/marcanova.png')} style={{ width: 150 }} resizeMode='contain' />
+                        }
                     </View>
 
                     <TouchableWithoutFeedback style={{ flex: 1, backgroundColor: 'red' }} onPress={() => this.toggleMenu()}>

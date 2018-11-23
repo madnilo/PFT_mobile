@@ -1,27 +1,32 @@
-const GET_ASSESMENT_START = 'assesment/get/start'
-const GET_ASSESMENT_FINISH = 'assesment/get/finish'
+const GET_ASSESMENT_REQUEST = 'assesment/get/request'
+const GET_ASSESMENT_RESPONSE = 'assesment/get/response'
 
-const GET_TIPS_START = 'tips/get/start'
-const GET_TIPS_FINISH = 'tips/get/finish'
+const GET_TIPS_REQUEST = 'tips/get/request'
+const GET_TIPS_RESPONSE = 'tips/get/response'
 
-const GET_USER_START = 'user/get/start'
-const GET_USER_FINISH = 'user/get/finish'
+const GET_USER_REQUEST = 'user/get/request'
+const GET_USER_RESPONSE = 'user/get/response'
 
-const EDIT_USER_START = 'user/edit/start'
-const EDIT_USER_FINISH = 'user/edit/finish'
+const EDIT_USER_REQUEST = 'user/edit/request'
+const EDIT_USER_RESPONSE = 'user/edit/response'
 
-const EDIT_AVATAR_START = 'avatar/edit/start'
-const EDIT_AVATAR_FINISH = 'avatar/edit/finish'
+const EDIT_AVATAR_REQUEST = 'avatar/edit/request'
+const EDIT_AVATAR_RESPONSE = 'avatar/edit/response'
+
+const GET_EVENTS_REQUEST = 'events/get/request'
+const GET_EVENTS_RESPONSE = 'events/get/response'
 
 export default {
-    GET_ASSESMENT_START,
-    GET_ASSESMENT_FINISH,
-    GET_TIPS_START,
-    GET_TIPS_FINISH,
-    GET_USER_START,
-    GET_USER_FINISH,
-    EDIT_USER_START,
-    EDIT_USER_FINISH,
-    EDIT_AVATAR_START,
-    EDIT_AVATAR_FINISH,
+    GET_ASSESMENT_REQUEST,
+    GET_ASSESMENT_RESPONSE,
+    GET_TIPS_REQUEST,
+    GET_TIPS_RESPONSE,
+    GET_USER_REQUEST,
+    GET_USER_RESPONSE,
+    EDIT_USER_REQUEST,
+    EDIT_USER_RESPONSE,
+    EDIT_AVATAR_REQUEST,
+    EDIT_AVATAR_RESPONSE,
+    GET_EVENTS_REQUEST,
+    GET_EVENTS_RESPONSE,
 }

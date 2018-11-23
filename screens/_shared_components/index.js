@@ -1,5 +1,4 @@
-import ButtonPrimary from './ButtonPrimary'
-import ButtonSecondary from './ButtonSecondary'
+import ButtonCard from './ButtonCard'
 import Header from './Header'
 import Spinner from './Spinner'
 import TextBold from './TextBold'
@@ -8,10 +7,10 @@ import TextSubtext from './TextSubtext'
 import Container from './Container'
 import Content from './Content'
 import YoutubeVideo from './YoutubeVideo'
+import TextCardField from './TextCardField'
 
 export {
-    ButtonPrimary,
-    ButtonSecondary,
+    ButtonCard,
     Header,
     Spinner,
     TextBold,
@@ -19,5 +18,6 @@ export {
     TextSubtext,
     Container,
     Content,
-    YoutubeVideo
+    YoutubeVideo,
+    TextCardField,
 }

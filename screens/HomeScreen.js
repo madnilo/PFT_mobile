@@ -27,7 +27,7 @@ export default class HomeScreen extends React.Component {
         return (
             <Container>
 
-                <Header nav={this.props.navigation.navigate}/>
+                <Header nav={this.props.navigation.navigate} home={true} />
 
                 <Content>
                     <View>
