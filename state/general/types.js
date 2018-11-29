@@ -26,6 +26,10 @@ const GET_SCHEDULES_RESPONSE = 'schedules/get/response'
 const DELETE_SCHEDULE_REQUEST = 'schedules/delete/request'
 const DELETE_SCHEDULE_RESPONSE = 'schedules/delete/response'
 
+const RECOVER_PASSWORD_REQUEST = 'recover_password/post/request'
+const RECOVER_PASSWORD_RESPONSE = 'recover_password/post/response'
+const RECOVER_PASSWORD_RESET = 'recover_password/post/reset'
+
 export default {
     GET_ASSESMENT_REQUEST,
     GET_ASSESMENT_RESPONSE,
@@ -54,4 +58,8 @@ export default {
 
     DELETE_SCHEDULE_REQUEST,
     DELETE_SCHEDULE_RESPONSE,
+
+    RECOVER_PASSWORD_REQUEST,
+    RECOVER_PASSWORD_RESPONSE,
+    RECOVER_PASSWORD_RESET,
 }

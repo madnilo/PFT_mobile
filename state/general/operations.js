@@ -103,15 +103,39 @@ const deleteSchedule = (id) => (dispatch, getState) => {
         })
 }
 
+const recoverPassword = (email) => (dispatch) => {
+    dispatch(actions.recoverPasswordStart())
+    Http.post('students/password', {
+        student: {
+            email
+        }
+    })
+        .then(res => dispatch(actions.recoverPasswordFinish()))
+        .catch(err => dispatch(actions.recoverPasswordReset()))
+}
+
+const recoverPasswordReset = () => (dispatch) => dispatch(actions.recoverPasswordReset())
+
 export default {
     getAssesment,
+
     getTips,
+
     getEvents,
+
     getUser,
+
     editUser,
     editUserReset,
+
     getWorkouts,
+
     getWorkoutDetails,
+
     getSchedules,
+
     deleteSchedule,
+
+    recoverPassword,
+    recoverPasswordReset
 }

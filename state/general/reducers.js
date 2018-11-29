@@ -92,3 +92,16 @@ export const schedulesReducer = (state = genericState, action) => {
             return state
     }
 }
+
+export const recoverPasswordReducer = (state = { loading: false, success: false }, action) => {
+    switch (action.type) {
+        case types.RECOVER_PASSWORD_REQUEST:
+            return { loading: true, success: false }
+        case types.RECOVER_PASSWORD_RESPONSE:
+            return { loading: false, success: true }
+        case types.RECOVER_PASSWORD_RESET:
+            return { loading: false, success: false }
+        default:
+            return state
+    }
+}

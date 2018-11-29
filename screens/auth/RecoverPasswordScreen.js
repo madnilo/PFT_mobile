@@ -20,26 +20,34 @@ const ios = Platform.OS === 'ios'
 
 class RecoverPasswordScreen extends Component {
 
-    state={
+    state = {
         email: '',
     }
 
-    componentDidUpdate(){
+    componentDidMount(){
+        this.props.reset()
+    }
 
+    componentDidUpdate() {
+        const { success, navigation } = this.props
+        if (success) {
+            navigation.goBack()
+            Toast.topToast('Verifique seu e-mail para recuperar sua senha.')
+        }
     }
 
     handleSubmit = () => {
         const { email } = this.state
-        if( email ){
-            alert('nao implementado')
+        if (email) {
+            this.props.recoverPassword(email)
         }
         else
-        Toast.topToast('Deve ser informado um email válido')
-
+            Toast.topToast('Deve ser informado um email válido')
     }
 
     render() {
-        const { email  } = this.state
+        const { email } = this.state
+        const { loading } = this.props
 
         return (
             <Container>
@@ -48,19 +56,19 @@ class RecoverPasswordScreen extends Component {
                     backFunction={this.props.navigation.goBack} />
                 <Content>
 
-                    <TextBold text='Recuperar senha'/>
-                    <TextSubtext text='Informe seu email e enviaremos uma recuperação de senha'/>
+                    <TextBold text='Recuperar senha' />
+                    <TextSubtext text='Informe seu email e enviaremos uma recuperação de senha' />
 
                     <PrimaryInput
                         placeholder='Email'
-                        secureTextEntry={true}
+                        autoCapitalize='none'
                         value={email}
                         onChangeText={(email) => this.setState({ email })}
                     />
 
                     <PrimaryButton
                         text='Recuperar'
-                        // loading={ loading }
+                        loading={ loading }
                         onPress={() => this.handleSubmit()}
                     />
                 </Content>
@@ -75,13 +83,15 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
     return {
-
+        loading: state.recoverPassword.loading,
+        success: state.recoverPassword.success
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-
+        recoverPassword: (email) => dispatch(generalOps.recoverPassword(email)),
+        reset: () => dispatch(generalOps.recoverPasswordReset())
     }
 }
 

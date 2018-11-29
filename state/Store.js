@@ -8,7 +8,8 @@ import {
     usersReducer,
     workoutsReducer,
     schedulesReducer,
-    workoutDetailsReducer
+    workoutDetailsReducer,
+    recoverPasswordReducer
 } from './general/reducers'
 
 export const Store = createStore(
@@ -20,7 +21,8 @@ export const Store = createStore(
         user: usersReducer,
         workouts: workoutsReducer,
         workoutDetails: workoutDetailsReducer,
-        schedules: schedulesReducer
+        schedules: schedulesReducer,
+        recoverPassword: recoverPasswordReducer,
     }),
     applyMiddleware(thunkMiddleware)
 )

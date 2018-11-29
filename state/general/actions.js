@@ -84,6 +84,18 @@ const deleteScheduleFinish = (data) => ({
     type: types.DELETE_SCHEDULE_RESPONSE
 })
 
+const recoverPasswordStart = () => ({
+    type: types.RECOVER_PASSWORD_REQUEST,
+})
+
+const recoverPasswordFinish = () => ({
+    type: types.RECOVER_PASSWORD_RESPONSE,
+})
+
+const recoverPasswordReset = () => ({
+    type: types.RECOVER_PASSWORD_RESET,
+})
+
 export default {
     getAssesmentStart,
     getAssesmentFinish,
@@ -112,4 +124,8 @@ export default {
 
     deleteScheduleStart,
     deleteScheduleFinish,
+
+    recoverPasswordStart,
+    recoverPasswordFinish,
+    recoverPasswordReset,
 }

@@ -20,7 +20,7 @@ Http.interceptors.response.use(
     },
     (error) => {
         Toast.topToast(error.response.data.errors)
-        // console.log('res err :', error.response.data.errors)
+        console.log('res err :', error)
         return Promise.reject(error.response.data)
     }
 )
