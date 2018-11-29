@@ -8,6 +8,8 @@ import Container from './Container'
 import Content from './Content'
 import YoutubeVideo from './YoutubeVideo'
 import TextCardField from './TextCardField'
+import PrimaryInput from './PrimaryInput'
+import PrimaryButton from './PrimaryButton'
 
 export {
     ButtonCard,
@@ -20,4 +22,6 @@ export {
     Content,
     YoutubeVideo,
     TextCardField,
+    PrimaryInput,
+    PrimaryButton,
 }

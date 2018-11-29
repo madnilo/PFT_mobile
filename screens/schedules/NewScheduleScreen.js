@@ -4,27 +4,25 @@ import {
     View,
     StyleSheet,
 } from 'react-native'
-import Header from '../_shared_components/Header'
+import { Container, Content, Header, TextBold, TextSubtext } from '../_shared_components'
 import Colors from '../_constants/Colors'
 
 export default class NewScheduleScreen extends Component {
     render() {
         return (
-            <View style={styles.container}>
+            <Container>
                 <Header
                     nav={this.props.navigation.navigate}
                     backFunction={this.props.navigation.goBack} />
-                <View styles={{ flex: 1 }}>
-                <Text style={{ color: Colors.orange, fontSize: 32}}> Novo Horário </Text>
-                </View>
-            </View>
+                <Content>
+                    <TextBold text='Agendar Horário'/>
+                    <TextSubtext text='Selecione a data e horário do seu treino'/>
+                </Content>
+            </Container>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: Colors.background,
-    }
+
 });

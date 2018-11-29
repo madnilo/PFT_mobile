@@ -24,9 +24,14 @@ class ProfileScreen extends Component {
         this.props.getUser()
     }
 
-    changePwd = () => alert('nao implementado')
+    componentDidUpdate(){
+        // if(this.props.user.success)
+            // this.props.reset()
+    }
 
-    changeInfo = () => alert('nao implementado')
+    changePwd = () => this.props.navigation.navigate('ChangePwd')
+
+    changeInfo = () => this.props.navigation.navigate('ChangeProfile')
 
     changeAvatar = () => {
         if (ios) checkCameraRollIOS()
@@ -36,13 +41,11 @@ class ProfileScreen extends Component {
     _pickImage = async () => {
         let image = await ImagePicker.launchImageLibraryAsync({
             allowsEditing: true,
-            aspect: [4, 3],
+            aspect: [1, 1],
         });
 
-        console.log(image);
-
         if (!image.cancelled) {
-            return image
+            this.props.editUser(null, image, null)
         }
     };
 
@@ -101,7 +104,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         getUser: () => dispatch(generalOps.getUser()),
-        editUser: () => dispatch(generalOps.editUser()),
+        editUser: (user, avatar, pwd) => dispatch(generalOps.editUser(user, avatar, pwd)),
+        reset: () => dispatch(generalOps.editUserReset())
     }
 }
 

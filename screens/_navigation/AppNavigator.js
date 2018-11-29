@@ -9,6 +9,9 @@ import MyWorkoutsScreen from '../workouts/MyWorkoutsScreen';
 import EventsScreen from '../events/EventsScreen';
 import ProfileScreen from '../profile/ProfileScreen';
 import ArticleScreen from '../tips/ArticleScreen';
+import ChangePasswordScreen from '../profile/ChangePasswordScreen';
+import ChangeProfileScreen from '../profile/ChangeProfileScreen';
+import WorkoutDetailsScreen from '../workouts/WorkoutDetailsScreen';
 
 export default createStackNavigator({
     Home: HomeScreen,
@@ -19,7 +22,10 @@ export default createStackNavigator({
     MySchedule: MyScheduleScreen,
     NewSchedule: NewScheduleScreen,
     MyWorkouts: MyWorkoutsScreen,
+    WorkoutDetails: WorkoutDetailsScreen,
     Profile: ProfileScreen,
+    ChangePwd: ChangePasswordScreen,
+    ChangeProfile: ChangeProfileScreen,
 },
     {
         headerMode: 'none',

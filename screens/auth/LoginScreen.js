@@ -19,7 +19,7 @@ class LoginScreen extends Component {
 
     state = {
         email: 'teste@teste.com',
-        password: '11111111',
+        password: '99999999',
     }
 
     componentDidMount() {
@@ -48,6 +48,8 @@ class LoginScreen extends Component {
         const { email, password } = this.state
         this.props.login(email, password)
     }
+
+    handleRecoverPassword = () => this.props.navigation.navigate('RecoverPassword')
 
     render() {
         const { email, password } = this.state
@@ -89,7 +91,7 @@ class LoginScreen extends Component {
 
                             <SecondaryButton
                                 text= 'Esqueci minha senha.'
-                                onPress={() => console.log('press')} />
+                                onPress={() => this.handleRecoverPassword()} />
 
                         </KeyboardAvoidingView>
                     </View>

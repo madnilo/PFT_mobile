@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import {
-    Text,
-    View,
     StyleSheet,
     ScrollView,
     SafeAreaView,
@@ -14,24 +12,21 @@ import {
     TextSubtext,
     Spinner,
 } from '../_shared_components'
-import Colors from '../_constants/Colors'
 import { connect } from 'react-redux'
 import generalOps from '../../state/general/operations'
-import CardTouchable from './_components/CardTouchable'
+import { CardExercise } from './_components/CardExercise'
 
-class MyWorkoutsScreen extends Component {
+class WorkoutDetailsScreen extends Component {
 
     componentDidMount() {
-        this.props.getWorkouts()
+        this.props.getWorkoutDetails(this.props.navigation.getParam('id', {}))
     }
 
-    handleSelect = (id, dayOfWeek) =>
-        this.props.navigation.navigate('WorkoutDetails', { id, dayOfWeek })
-
     render() {
-        const { workouts } = this.props
+        const { workout } = this.props
+        const dayOfWeek = this.props.navigation.getParam('dayOfWeek', {})
 
-        if (workouts.loading)
+        if (workout.loading)
             return (
                 <Container>
                     <Header
@@ -41,7 +36,7 @@ class MyWorkoutsScreen extends Component {
                 </Container>
             )
 
-        console.log(workouts.data)
+        console.log(workout.data)
         return (
             <Container>
                 <Header
@@ -51,18 +46,18 @@ class MyWorkoutsScreen extends Component {
                 <ScrollView>
                     <Content>
                         <SafeAreaView>
-                            <TextBold text='Meus Treinos' />
-                            <TextSubtext text='Explore os seus treinos programados' />
+                            <TextBold text={dayOfWeek} />
+                            <TextSubtext text='Explore sua lista de exercícios' />
 
                             {
-                                workouts.data.map(
+                                workout.data.map(
                                     item =>
-                                        <CardTouchable
-                                            key={item.id}
-                                            id={item.id}
-                                            text={item.attributes['day-of-week']}
-                                            value={item.attributes['training-type']}
-                                            onPress={this.handleSelect} />
+                                    <CardExercise
+                                        key={item.id}
+                                        title={item.attributes.training}
+                                        series={item.attributes.series}
+                                        repetitions={item.attributes.repetitions}
+                                        load={item.attributes.weight}/>
                                 )
                             }
                         </SafeAreaView>
@@ -79,14 +74,14 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
     return {
-        workouts: state.workouts
+        workout: state.workoutDetails
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        getWorkouts: () => dispatch(generalOps.getWorkouts())
+        getWorkoutDetails: (id) => dispatch(generalOps.getWorkoutDetails(id))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyWorkoutsScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(WorkoutDetailsScreen)

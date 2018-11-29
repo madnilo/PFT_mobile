@@ -1,7 +1,15 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import authReducer from './auth/reducers'
-import { assesmentReducer, tipsReducer, eventsReducer, usersReducer } from './general/reducers'
+import {
+    assesmentReducer,
+    tipsReducer,
+    eventsReducer,
+    usersReducer,
+    workoutsReducer,
+    schedulesReducer,
+    workoutDetailsReducer
+} from './general/reducers'
 
 export const Store = createStore(
     combineReducers({
@@ -10,6 +18,9 @@ export const Store = createStore(
         assesment: assesmentReducer,
         events: eventsReducer,
         user: usersReducer,
+        workouts: workoutsReducer,
+        workoutDetails: workoutDetailsReducer,
+        schedules: schedulesReducer
     }),
     applyMiddleware(thunkMiddleware)
 )

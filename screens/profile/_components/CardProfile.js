@@ -22,8 +22,8 @@ export default class CardProfile extends PureComponent {
                         <TextCardField type='value'><TextCardField type='field'>Telefone: </TextCardField> {usr.phone}</TextCardField>
                     </View>
                     <View style={styles.CardToolbar}>
-                        <ButtonCard type='primary' onPress={changePwd}>Alterar Dados</ButtonCard>
-                        <ButtonCard onPress={changeInfo}>Mudar Senha</ButtonCard>
+                        <ButtonCard type='primary' onPress={changeInfo}>Alterar Dados</ButtonCard>
+                        <ButtonCard onPress={changePwd}>Mudar Senha</ButtonCard>
                     </View>
                 </View>
             </View>

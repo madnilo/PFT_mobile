@@ -3,28 +3,96 @@ import {
     Text,
     View,
     StyleSheet,
+    ScrollView,
+    SafeAreaView,
 } from 'react-native'
-import Header from '../_shared_components/Header'
+import {
+    Container,
+    Content,
+    Header,
+    TextBold,
+    TextSubtext,
+    Spinner,
+    PrimaryButton,
+} from '../_shared_components'
 import Colors from '../_constants/Colors'
+import { connect } from 'react-redux'
+import generalOps from '../../state/general/operations'
+import CardSchedule from './_components/CardSchedule'
 
-export default class MyScheduleScreen extends Component {
+class MyScheduleScreen extends Component {
+
+    componentDidMount() {
+        this.props.getSchedules()
+    }
+
+    handleSelect = () => alert('em construção')
+
+    handleAdd = () => alert('em construção')
+
     render() {
+        const { schedules } = this.props
+
+        if (schedules.loading)
+            return (
+                <Container>
+                    <Header
+                        nav={this.props.navigation.navigate}
+                        backFunction={this.props.navigation.goBack} />
+                    <Spinner />
+                </Container>
+            )
+
+        console.log(schedules.data)
         return (
-            <View style={styles.container}>
+            <Container>
                 <Header
                     nav={this.props.navigation.navigate}
                     backFunction={this.props.navigation.goBack} />
-                <View styles={{ flex: 1 }}>
-                <Text style={{ color: Colors.orange, fontSize: 32}}> Meus Horários </Text>
-                </View>
-            </View>
+
+                <ScrollView>
+                    <Content>
+                        <SafeAreaView>
+                            <TextBold text='Meus Horários' />
+                            <TextSubtext text='Cancele ou adicione novos horários de treino' />
+
+                            {
+                                schedules.data.map(
+                                    item =>
+                                        <CardSchedule
+                                            key={item.id}
+                                            text={item.attributes.date}
+                                            value={`${item.attributes['day-of-week']} | ${item.attributes.hour}`}
+                                            onPress={this.handleSelect} />
+                                )
+
+                            }
+                            <PrimaryButton
+                                text='Adicionar'
+                                onPress={() => this.handleAdd()}
+                            />
+                        </SafeAreaView>
+                    </Content>
+                </ScrollView>
+            </Container>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: Colors.background,
-    }
+
 });
+
+function mapStateToProps(state) {
+    return {
+        schedules: state.schedules
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        getSchedules: () => dispatch(generalOps.getSchedules())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyScheduleScreen)

@@ -5,10 +5,19 @@ import {
     View,
     TouchableHighlight,
     Dimensions,
-
 } from 'react-native';
-import { Header, TextBold, TextSubtext, TextLight, Container, Content } from './_shared_components'
+import {
+    Header,
+    TextBold,
+    TextSubtext,
+    TextLight,
+    Container,
+    Content,
+    Spinner
+} from './_shared_components'
 import Colors from './_constants/Colors';
+import { connect } from 'react-redux'
+import generalOps from '../state/general/operations'
 
 const dashboard = [
     { name1: 'Meus', name2: 'Horários', route: 'MySchedule' },
@@ -21,9 +30,26 @@ const dashboard = [
 
 const { width, height } = Dimensions.get('window')
 
-export default class HomeScreen extends React.Component {
+class HomeScreen extends React.Component {
+
+    componentDidMount(){
+        this.props.getUser()
+    }
 
     render() {
+        const { user } = this.props
+
+        if (user.loading)
+        return (
+            <Container>
+                <Header nav={this.props.navigation.navigate} />
+                <Content>
+                    <Spinner />
+                </Content>
+            </Container>
+        )
+
+        const usr = user.data.attributes
         return (
             <Container>
 
@@ -33,7 +59,7 @@ export default class HomeScreen extends React.Component {
                     <View>
                         {/* TODO obter dados do usuario e substituir o nome */}
                         <TextLight text='Olá' />
-                        <TextBold text='Henrique' />
+                        <TextBold text={usr.name.split(' ')[0]} />
                         <TextSubtext text='Como posso te ajudar?' />
                     </View>
                     <View style={{ flex: 1, }}>
@@ -76,8 +102,19 @@ export default class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: Colors.background,
-    }
+
 });
+
+function mapStateToProps(state) {
+    return {
+        user: state.user
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        getUser: () => dispatch(generalOps.getUser()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen)

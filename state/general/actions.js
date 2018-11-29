@@ -36,13 +36,8 @@ const editUserFinish = (data) => ({
     data
 })
 
-const editAvatarStart = () => ({
-    type: types.EDIT_AVATAR_REQUEST,
-})
-
-const editAvatarFinish = (data) => ({
-    type: types.EDIT_AVATAR_RESPONSE,
-    data
+const editUserReset = () => ({
+    type: types.EDIT_USER_RESET
 })
 
 const getEventsStart = () => ({
@@ -51,6 +46,33 @@ const getEventsStart = () => ({
 
 const getEventsFinish = (data) => ({
     type: types.GET_EVENTS_RESPONSE,
+    data
+})
+
+const getWorkoutsStart = () => ({
+    type: types.GET_WORKOUTS_REQUEST,
+})
+
+const getWorkoutsFinish = (data) => ({
+    type: types.GET_WORKOUTS_RESPONSE,
+    data
+})
+
+const getWorkoutDetailsStart = () => ({
+    type: types.GET_WORKOUT_DETAILS__REQUEST,
+})
+
+const getWorkoutDetailsFinish = (data) => ({
+    type: types.GET_WORKOUT_DETAILS_RESPONSE,
+    data
+})
+
+const getSchedulesStart = () => ({
+    type: types.GET_SCHEDULES_REQUEST,
+})
+
+const getSchedulesFinish = (data) => ({
+    type: types.GET_SCHEDULES_RESPONSE,
     data
 })
 
@@ -66,10 +88,17 @@ export default {
 
     editUserStart,
     editUserFinish,
-
-    editAvatarStart,
-    editAvatarFinish,
+    editUserReset,
 
     getEventsStart,
     getEventsFinish,
+
+    getWorkoutsStart,
+    getWorkoutsFinish,
+
+    getWorkoutDetailsStart,
+    getWorkoutDetailsFinish,
+
+    getSchedulesStart,
+    getSchedulesFinish,
 }
