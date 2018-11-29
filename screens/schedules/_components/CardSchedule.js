@@ -10,15 +10,16 @@ import { Ionicons } from '@expo/vector-icons'
 
 export default class CardSchedule extends PureComponent {
     render() {
+        const { id, text, value, onPress } = this.props
         return (
             <View>
                 <View style={styles.card}>
                     <View style={styles.textContainer}>
-                        <Text style={styles.info}> {this.props.text} </Text>
-                        <Text style={styles.value}> {this.props.value} </Text>
+                        <Text style={styles.info}> {text} </Text>
+                        <Text style={styles.value}> {value} </Text>
                     </View>
                     <TouchableWithoutFeedback
-                        onPress={() => this.props.onPress()}>
+                        onPress={() => onPress(id)}>
                         <Ionicons name='md-close-circle' color={Colors.orange} size={18} />
                     </TouchableWithoutFeedback>
                 </View>

@@ -14,6 +14,7 @@ import {
     TextSubtext,
     Spinner,
     PrimaryButton,
+    Bumper,
 } from '../_shared_components'
 import Colors from '../_constants/Colors'
 import { connect } from 'react-redux'
@@ -26,9 +27,9 @@ class MyScheduleScreen extends Component {
         this.props.getSchedules()
     }
 
-    handleSelect = () => alert('em construção')
+    handleRemove = (id) => this.props.deleteSchedule(id)
 
-    handleAdd = () => alert('em construção')
+    handleAdd = () => this.props.navigation.navigate('NewSchedule')
 
     render() {
         const { schedules } = this.props
@@ -43,7 +44,6 @@ class MyScheduleScreen extends Component {
                 </Container>
             )
 
-        console.log(schedules.data)
         return (
             <Container>
                 <Header
@@ -61,26 +61,38 @@ class MyScheduleScreen extends Component {
                                     item =>
                                         <CardSchedule
                                             key={item.id}
+                                            id={item.id}
                                             text={item.attributes.date}
                                             value={`${item.attributes['day-of-week']} | ${item.attributes.hour}`}
-                                            onPress={this.handleSelect} />
+                                            onPress={this.handleRemove} />
                                 )
 
                             }
-                            <PrimaryButton
-                                text='Adicionar'
-                                onPress={() => this.handleAdd()}
-                            />
+                            <Bumper />
                         </SafeAreaView>
                     </Content>
                 </ScrollView>
+                <SafeAreaView style={styles.fixedButtonContainer}>
+                    <PrimaryButton
+                        text='Agendar Horário'
+                        onPress={() => this.handleAdd()}
+                    />
+                </SafeAreaView>
             </Container>
         )
     }
 }
 
 const styles = StyleSheet.create({
-
+    fixedButtonContainer: {
+        shadowColor: Colors.black,
+        shadowOpacity: .5,
+        shadowOffset: { width: 0, height: -1 },
+        width: '86%',
+        alignSelf: 'center',
+        position: 'absolute',
+        bottom: 5,
+    },
 });
 
 function mapStateToProps(state) {
@@ -91,7 +103,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getSchedules: () => dispatch(generalOps.getSchedules())
+        getSchedules: () => dispatch(generalOps.getSchedules()),
+        deleteSchedule: (id) => dispatch(generalOps.deleteSchedule(id))
     }
 }
 

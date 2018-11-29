@@ -23,6 +23,9 @@ const GET_WORKOUT_DETAILS_RESPONSE = 'workout_details/get/response'
 const GET_SCHEDULES_REQUEST = 'schedules/get/request'
 const GET_SCHEDULES_RESPONSE = 'schedules/get/response'
 
+const DELETE_SCHEDULE_REQUEST = 'schedules/delete/request'
+const DELETE_SCHEDULE_RESPONSE = 'schedules/delete/response'
+
 export default {
     GET_ASSESMENT_REQUEST,
     GET_ASSESMENT_RESPONSE,
@@ -48,4 +51,7 @@ export default {
 
     GET_SCHEDULES_REQUEST,
     GET_SCHEDULES_RESPONSE,
+
+    DELETE_SCHEDULE_REQUEST,
+    DELETE_SCHEDULE_RESPONSE,
 }

@@ -84,6 +84,10 @@ export const schedulesReducer = (state = genericState, action) => {
             return { loading: true, data: null }
         case types.GET_SCHEDULES_RESPONSE:
             return { loading: false, data: action.data }
+        case types.DELETE_SCHEDULE_REQUEST:
+            return { ...state, success: false }
+        case types.DELETE_SCHEDULE_RESPONSE:
+            return { ...state, success: true }
         default:
             return state
     }

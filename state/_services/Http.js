@@ -8,19 +8,19 @@ export const Http = axios.create({
 
 Http.interceptors.request.use(
     (req) => {
-        // console.log(req)
+        console.log('request: ', req)
         return req
     }
 )
 
 Http.interceptors.response.use(
     (res) => {
-        console.log('req status ', res.status)
+        console.log('res: ', res.status)
         return res
     },
     (error) => {
         Toast.topToast(error.response.data.errors)
-        console.log('req err ', error.response.data.errors)
+        // console.log('res err :', error.response.data.errors)
         return Promise.reject(error.response.data)
     }
 )

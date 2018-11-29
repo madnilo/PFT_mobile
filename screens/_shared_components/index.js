@@ -10,6 +10,7 @@ import YoutubeVideo from './YoutubeVideo'
 import TextCardField from './TextCardField'
 import PrimaryInput from './PrimaryInput'
 import PrimaryButton from './PrimaryButton'
+import Bumper from './Bumper'
 
 export {
     ButtonCard,
@@ -24,4 +25,5 @@ export {
     TextCardField,
     PrimaryInput,
     PrimaryButton,
+    Bumper,
 }

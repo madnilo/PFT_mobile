@@ -76,6 +76,14 @@ const getSchedulesFinish = (data) => ({
     data
 })
 
+const deleteScheduleStart = () => ({
+    type: types.DELETE_SCHEDULE_REQUEST,
+})
+
+const deleteScheduleFinish = (data) => ({
+    type: types.DELETE_SCHEDULE_RESPONSE
+})
+
 export default {
     getAssesmentStart,
     getAssesmentFinish,
@@ -101,4 +109,7 @@ export default {
 
     getSchedulesStart,
     getSchedulesFinish,
+
+    deleteScheduleStart,
+    deleteScheduleFinish,
 }
