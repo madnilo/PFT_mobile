@@ -16,6 +16,7 @@ const authReducer = (state = initialSate, action) => {
         case types.LOGIN_FAILED:
             return { ...state, loginLoading: false, authorized: false, token: null, loginErrors: action.err}
         case types.LOGOUT:
+            console.log('saiu')
             return { ...state, authorized: false, token: null, loginErrors: null, }
         default:
             return state

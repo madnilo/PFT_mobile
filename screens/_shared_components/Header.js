@@ -42,7 +42,7 @@ class Header extends Component {
 
     render() {
         let { openedMenu } = this.state
-        const { backFunction, home } = this.props
+        const { backFunction, nav } = this.props
 
         return (
             <SafeAreaView style={[{ backgroundColor: Colors.black, width: '100%', height: height * .12, borderBottomColor: 'grey', borderBottomWidth: ios ? 1 : 0, elevation: 3 }, openedMenu ? { zIndex: 2 } : null]}>
@@ -61,20 +61,19 @@ class Header extends Component {
                     </TouchableWithoutFeedback>
 
                     <View style={{ flex: 2.5, alignItems: 'center' }}>
-                        {
-                            // home &&
-                            <Image source={require('../../assets/images/marcanova.png')} style={{ width: 150 }} resizeMode='contain' />
-                        }
+                        <Image source={require('../../assets/images/marcanova.png')} style={{ width: 150 }} resizeMode='contain' />
                     </View>
 
-                    <TouchableWithoutFeedback style={{ flex: 1, backgroundColor: 'red' }} onPress={() => this.toggleMenu()}>
+                    <TouchableWithoutFeedback style={{ flex: 1, backgroundColor: 'red' }} onPress={() => nav && this.toggleMenu()}>
                         <View style={{ flex: 1, alignItems: 'flex-end', paddingHorizontal: 15 }}>
                             {
-                                openedMenu
-                                    ?
-                                    <Ionicons name='ios-close' size={42} color={Colors.orange} />
-                                    :
-                                    <Ionicons name='ios-menu' size={32} color={Colors.orange} />
+                                nav && (
+                                    openedMenu
+                                        ?
+                                        <Ionicons name='ios-close' size={42} color={Colors.orange} />
+                                        :
+                                        <Ionicons name='ios-menu' size={32} color={Colors.orange} />
+                                )
                             }
                         </View>
                     </TouchableWithoutFeedback>

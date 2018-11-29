@@ -66,12 +66,14 @@ class ChangeProfileScreen extends Component {
                     <PrimaryInput
                         placeholder='Nome'
                         value={name}
+                        autoCapitalize='words'
                         onChangeText={(name) => this.setState({ name })}
                     />
 
                     <PrimaryInput
                         placeholder='Email'
                         value={email}
+                        autoCapitalize='none'
                         onChangeText={(email) => this.setState({ email })}
                     />
 

@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "PowerFit",
-    "description": "- Beta tela de meus horarios e meu treino",
+    "description": "- Finaliza tela de recuperação de senha\n- Corrige bugs",
     "slug": "power-fit",
     "privacy": "public",
     "sdkVersion": "31.0.0",

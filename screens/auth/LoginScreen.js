@@ -76,11 +76,13 @@ class LoginScreen extends Component {
 
                             <StyledInput
                                 placeholder='E-MAIL'
+                                autoCapitalize='none'
                                 value={email}
                                 onChangeText={(email) => this.setState({ email })} />
 
                             <StyledInput
                                 placeholder='SENHA'
+                                autoCapitalize='none'
                                 secureTextEntry={true}
                                 value={password}
                                 onChangeText={(password) => this.setState({ password })} />
@@ -90,7 +92,7 @@ class LoginScreen extends Component {
                                 onPress={() => !loginLoading && this.handleLogin()} />
 
                             <SecondaryButton
-                                text= 'Esqueci minha senha.'
+                                text= 'Esqueci minha senha'
                                 onPress={() => this.handleRecoverPassword()} />
 
                         </KeyboardAvoidingView>

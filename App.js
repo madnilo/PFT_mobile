@@ -5,11 +5,12 @@ import AuthNavigator from './screens/_navigation/AuthNavigator';
 import Colors from './screens/_constants/Colors'
 import { Provider } from 'react-redux'
 import { Store } from './state/Store'
+import NavigatorService from './state/_services/Navigator'
 
 const ios = Platform.OS === 'ios'
 
 export default class App extends React.Component {
-    constructor(){
+    constructor() {
         super()
 
         global.BASE_IMAGES = 'https://powerfit.agenciaacerte.com'
@@ -38,7 +39,10 @@ export default class App extends React.Component {
                             :
                             <StatusBar backgroundColor={Colors.statusBarAndroid} barStyle="light-content" />
                         }
-                        <AuthNavigator />
+                        <AuthNavigator
+                            ref={navigatorRef => {
+                                NavigatorService.setContainer(navigatorRef);
+                            }} />
                     </View>
                 </Provider>
             );

@@ -52,7 +52,6 @@ class RecoverPasswordScreen extends Component {
         return (
             <Container>
                 <Header
-                    nav={this.props.navigation.navigate}
                     backFunction={this.props.navigation.goBack} />
                 <Content>
 
