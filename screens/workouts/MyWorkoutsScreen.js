@@ -12,6 +12,7 @@ import {
     Header,
     TextBold,
     TextSubtext,
+    TextLight,
     Spinner,
 } from '../_shared_components'
 import Colors from '../_constants/Colors'
@@ -55,6 +56,8 @@ class MyWorkoutsScreen extends Component {
                             <TextSubtext text='Explore os seus treinos programados' />
 
                             {
+                                workouts.data.length
+                                ?
                                 workouts.data.map(
                                     item =>
                                         <CardTouchable
@@ -64,6 +67,8 @@ class MyWorkoutsScreen extends Component {
                                             value={item.attributes['training-type']}
                                             onPress={this.handleSelect} />
                                 )
+                                :
+                                <TextLight text='Nenhum treino encontrado.'/>
                             }
                         </SafeAreaView>
                     </Content>

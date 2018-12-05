@@ -1,15 +1,15 @@
 {
   "expo": {
     "name": "PowerFit",
-    "description": "- Finaliza tela de recuperação de senha\n- Corrige bugs",
-    "slug": "power-fit",
-    "privacy": "public",
+    "description": "-Corrige problema de toast não visivel no iphone X\n-Corrige problema de tela de avaliação física",
+    "slug": "build-001",
+    "privacy": "unlisted",
     "sdkVersion": "31.0.0",
     "platforms": [
       "ios",
       "android"
     ],
-    "version": "0.0.3",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/512.png",
     "splash": {

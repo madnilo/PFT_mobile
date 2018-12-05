@@ -5,7 +5,7 @@ import {
     Dimensions,
     SafeAreaView,
 } from 'react-native'
-import { Header, Container, Content, TextBold, TextSubtext, Spinner } from '../_shared_components'
+import { Header, Container, Content, TextBold, TextSubtext, Spinner, TextLight } from '../_shared_components'
 import CardInfo from './_components/CardInfo';
 import { connect } from 'react-redux'
 import generalOps from '../../state/general/operations'
@@ -29,7 +29,6 @@ class AssesmentScreen extends Component {
                 </Container>
             )
 
-        let attr = data.attributes
         return (
             <Container>
                 <Header
@@ -42,8 +41,12 @@ class AssesmentScreen extends Component {
                             <TextSubtext text='Veja aqui a sua avaliação física.' />
 
                             {
-                                Object.keys(attr)
-                                    .map(prop => <CardInfo key={prop} text={attr[prop].name} value={attr[prop].value} />)
+                                data
+                                ?
+                                Object.keys(data.attributes)
+                                    .map(prop => <CardInfo key={prop} text={data.attributes[prop].name} value={data.attributes[prop].value} />)
+                                :
+                                <TextLight text='Nenhuma avaliação disponível.'/>
                             }
 
                         </SafeAreaView>

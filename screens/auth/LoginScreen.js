@@ -18,8 +18,12 @@ const { width, height } = Dimensions.get('window')
 class LoginScreen extends Component {
 
     state = {
-        email: 'teste@teste.com',
-        password: '99999999',
+        email: '',
+        password: '',
+        // email: 'teste@teste.com',
+        // password: '11111111',
+        // email: 'deliombomfim@gmail.com',
+        // password: '1234567*',
     }
 
     componentDidMount() {

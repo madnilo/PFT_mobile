@@ -3,6 +3,7 @@ import {
     View,
     StyleSheet,
     Platform,
+    ScrollView,
 } from 'react-native'
 import { connect } from 'react-redux'
 import { ImagePicker } from 'expo'
@@ -16,7 +17,7 @@ const ios = Platform.OS === 'ios'
 
 class ProfileScreen extends Component {
 
-    state={
+    state = {
 
     }
 
@@ -24,9 +25,9 @@ class ProfileScreen extends Component {
         this.props.getUser()
     }
 
-    componentDidUpdate(){
+    componentDidUpdate() {
         // if(this.props.user.success)
-            // this.props.reset()
+        // this.props.reset()
     }
 
     changePwd = () => this.props.navigation.navigate('ChangePwd')
@@ -70,20 +71,24 @@ class ProfileScreen extends Component {
                 <Header
                     nav={this.props.navigation.navigate}
                     backFunction={this.props.navigation.goBack} />
-                <Content>
-                    <View style={styles.profileContent}>
+                <ScrollView>
+                    <Content>
+                        <View style={styles.profileContent}>
 
-                        <Avatar
-                            uri={`${global.BASE_IMAGES}${usr.avatar.url}`}
-                            change={this.changeAvatar} />
+                            <Avatar
+                                uri={`${global.BASE_IMAGES}${usr.avatar.url}`}
+                                hasAvatar={usr.avatar.url && true}
+                                change={this.changeAvatar} />
 
-                        <CardProfile
-                            usr={usr}
-                            changeInfo={this.changeInfo}
-                            changePwd={this.changePwd} />
+                            <CardProfile
+                                usr={usr}
+                                changeInfo={this.changeInfo}
+                                changePwd={this.changePwd} />
 
-                    </View>
-                </Content>
+                        </View>
+                    </Content>
+
+                </ScrollView>
             </Container>
         )
     }

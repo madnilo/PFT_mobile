@@ -21,11 +21,11 @@ import generalOps from '../state/general/operations'
 
 const dashboard = [
     { name1: 'Meus', name2: 'Horários', route: 'MySchedule' },
-    { name1: 'Agendar', name2: 'Horário', route: 'NewSchedule' },
     { name1: 'Meu', name2: 'Treino', route: 'MyWorkouts' },
     { name1: 'Avaliação', name2: 'Física', route: 'Assesments' },
     { name1: 'Dicas de', name2: 'Saúde', route: 'Tips' },
     { name1: 'Eventos', name2: null, route: 'Events' },
+    // { name1: 'Agendar', name2: 'Horário', route: 'NewSchedule' },
 ]
 
 const { width, height } = Dimensions.get('window')
@@ -77,16 +77,19 @@ class HomeScreen extends React.Component {
                                                     <Text style={{ fontSize: 18, fontWeight: '500' }}>{option.name2 && option.name2.toUpperCase()}</Text>
                                                 </View>
                                             </TouchableHighlight>
-                                            <TouchableHighlight
-                                                key={array[index + 1].route}
-                                                onPress={() => this.props.navigation.navigate(array[index + 1].route)}
-                                                underlayColor={Colors.orange}
-                                                style={{ height: height * .22, width: width * .42, }}>
-                                                <View style={{ flex: 1, marginVertical: height * .005, borderWidth: 1, borderColor: Colors.orange, alignItems: 'center', justifyContent: 'center' }}>
-                                                    <Text style={{ fontSize: 18, fontWeight: '500' }}>{array[index + 1].name1.toUpperCase()}</Text>
-                                                    <Text style={{ fontSize: 18, fontWeight: '500' }}>{array[index + 1].name2 && array[index + 1].name2.toUpperCase()}</Text>
-                                                </View>
-                                            </TouchableHighlight>
+                                            {
+                                                index != 4 &&
+                                                <TouchableHighlight
+                                                    key={array[index + 1].route}
+                                                    onPress={() => this.props.navigation.navigate(array[index + 1].route)}
+                                                    underlayColor={Colors.orange}
+                                                    style={{ height: height * .22, width: width * .42, }}>
+                                                    <View style={{ flex: 1, marginVertical: height * .005, borderWidth: 1, borderColor: Colors.orange, alignItems: 'center', justifyContent: 'center' }}>
+                                                        <Text style={{ fontSize: 18, fontWeight: '500' }}>{array[index + 1].name1.toUpperCase()}</Text>
+                                                        <Text style={{ fontSize: 18, fontWeight: '500' }}>{array[index + 1].name2 && array[index + 1].name2.toUpperCase()}</Text>
+                                                    </View>
+                                                </TouchableHighlight>
+                                            }
                                         </View>
                                     )
                             }

@@ -8,7 +8,7 @@ import {
     Platform,
     Dimensions,
 } from 'react-native'
-import { Header, Container, Content, TextBold, TextSubtext, Spinner, YoutubeVideo } from '../_shared_components'
+import { Header, Container, Content, TextBold, TextSubtext, Spinner, YoutubeVideo, TextLight } from '../_shared_components'
 import generalOps from '../../state/general/operations'
 import { connect } from 'react-redux'
 import { CardEvent } from './_components/CardEvent'
@@ -58,8 +58,12 @@ class EventsScreen extends Component {
                     <TextSubtext text='Veja os eventos que nós oferecemos!' />
 
                     {
+                        events.data.length
+                        ?
                         events.data
                             .map(item => <CardEvent key={item.id} event={item.attributes} openVideo={this.openModal} />)
+                        :
+                        <TextLight text='Nenhum evento encontrado.'/>
                     }
 
                 </Content>

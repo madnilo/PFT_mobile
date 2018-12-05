@@ -8,12 +8,22 @@ import Colors from '../../_constants/Colors'
 
 export default class CardInfo extends PureComponent {
     render() {
+        const { text, value } = this.props
         return (
             <View>
-                <View style={ styles.card }>
-                    <Text adjustsFontSizeToFit={true} numberOfLines={1} style={ styles.info }> {this.props.text} </Text>
-                    <Text adjustsFontSizeToFit={true} numberOfLines={1} style={ styles.value }> {this.props.value} </Text>
-                </View>
+                {
+                    value.length < 10
+                    ?
+                    <View style={ styles.card }>
+                        <Text adjustsFontSizeToFit={true} numberOfLines={1} style={ styles.info }> {text} </Text>
+                        <Text adjustsFontSizeToFit={true} numberOfLines={1} style={ styles.value }> {value} </Text>
+                    </View>
+                    :
+                    <View style={ styles.cardTextArea }>
+                        <Text adjustsFontSizeToFit={true} numberOfLines={1} style={ styles.info }> {text} </Text>
+                        <Text style={ styles.valueTextArea }> {value} </Text>
+                    </View>
+                }
             </View>
         )
     }
@@ -29,6 +39,15 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginVertical: 5
     },
+    cardTextArea:{
+        borderWidth: 1,
+        borderRadius: 5,
+        borderColor: Colors.orange,
+        padding: 10,
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        marginVertical: 5
+    },
     info:{
         color: Colors.text,
         fontSize: 14,
@@ -41,5 +60,12 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         width: '20%',
         textAlign: 'right'
+    },
+    valueTextArea:{
+        color: Colors.text,
+        fontSize: 14,
+        fontWeight: '400',
+        width: '100%',
+        padding: 3,
     }
 })

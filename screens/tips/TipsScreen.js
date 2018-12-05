@@ -10,7 +10,7 @@ import { Ionicons } from '@expo/vector-icons'
 import { connect } from 'react-redux'
 import generalOps from '../../state/general/operations'
 import Colors from '../_constants/Colors'
-import { Header, TextBold, TextSubtext, Spinner, Container, Content } from '../_shared_components'
+import { Header, TextBold, TextLight, TextSubtext, Spinner, Container, Content } from '../_shared_components'
 
 class TipsScreen extends Component {
 
@@ -46,8 +46,8 @@ class TipsScreen extends Component {
                         <TextSubtext text='Dicas para complementar o cuidado com sua saúde' />
 
                         {
-                            tips
-                            &&
+                            tips.data.length
+                            ?
                             tips.data.map(item => (
                                 <TouchableHighlight key={item.id} onPress={() => this.props.navigation.navigate('Article', { item })}
                                     style={{ marginVertical: 5, borderRadius: 5 }}
@@ -58,6 +58,8 @@ class TipsScreen extends Component {
                                     </View>
                                 </TouchableHighlight>
                             ))
+                            :
+                            <TextLight text='Nenhum conteúdo cadastrado.'/>
                         }
 
                     </Content>

@@ -13,7 +13,13 @@ export default Avatar = (props) => {
             underlayColor={Colors.orange}
             onPress={() => props.change()}
         >
+        {
+            props.hasAvatar
+            ?
             <Image style={styles.avatar} source={{ uri: props.uri }}></Image>
+            :
+            <Image style={styles.avatar} source={require('../../../assets/images/512.png')}/>
+        }
         </TouchableHighlight>
     )
 }

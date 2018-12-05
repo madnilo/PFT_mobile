@@ -21,6 +21,19 @@ export default class CardProfile extends PureComponent {
                         <TextCardField type='value'><TextCardField type='field'>E-Mail: </TextCardField> {usr.email}</TextCardField>
                         <TextCardField type='value'><TextCardField type='field'>Telefone: </TextCardField> {usr.phone}</TextCardField>
                     </View>
+                    <View style={styles.cardTitle}>
+                        {
+                            usr['my-week-schedule'] &&
+                            <TextCardField type='title'>Horários</TextCardField>
+                        }
+                    </View>
+                    <View style={styles.CardInfo}>
+                        {
+                            usr['my-week-schedule'] &&
+                            usr['my-week-schedule'].map((item, index) =>
+                                <TextCardField key={index} type='value'><TextCardField type='field'>{`${item[0]}: `}</TextCardField>{item[1]}</TextCardField>)
+                        }
+                    </View>
                     <View style={styles.CardToolbar}>
                         <ButtonCard type='primary' onPress={changeInfo}>Alterar Dados</ButtonCard>
                         <ButtonCard onPress={changePwd}>Mudar Senha</ButtonCard>

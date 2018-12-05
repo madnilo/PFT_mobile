@@ -15,6 +15,7 @@ import {
     Spinner,
     PrimaryButton,
     Bumper,
+    TextLight,
 } from '../_shared_components'
 import Colors from '../_constants/Colors'
 import { connect } from 'react-redux'
@@ -29,7 +30,7 @@ class MyScheduleScreen extends Component {
 
     handleRemove = (id) => this.props.deleteSchedule(id)
 
-    handleAdd = () => this.props.navigation.navigate('NewSchedule')
+    handleAdd = () => alert('Em breve será possível agendar os seus horários.') //this.props.navigation.navigate('NewSchedule')
 
     render() {
         const { schedules } = this.props
@@ -57,6 +58,8 @@ class MyScheduleScreen extends Component {
                             <TextSubtext text='Cancele ou adicione novos horários de treino' />
 
                             {
+                                schedules.data.length
+                                ?
                                 schedules.data.map(
                                     item =>
                                         <CardSchedule
@@ -66,7 +69,8 @@ class MyScheduleScreen extends Component {
                                             value={`${item.attributes['day-of-week']} | ${item.attributes.hour}`}
                                             onPress={this.handleRemove} />
                                 )
-
+                                :
+                                <TextLight text='Nenhum horário encontrado.'/>
                             }
                             <Bumper />
                         </SafeAreaView>

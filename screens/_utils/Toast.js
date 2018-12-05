@@ -1,9 +1,12 @@
 import Toast from 'react-native-root-toast'
 import Colors from '../_constants/Colors';
+import { Dimensions } from 'react-native'
 
-topToast = (msg) => showToast(msg, Toast.positions.TOP)
+const { height } = Dimensions.get('window')
 
-bottomToast = (msg) => showToast(msg, Toast.positions.BOTTOM)
+topToast = (msg) => showToast(msg, height*.06)
+
+bottomToast = (msg) => showToast(msg, height*.9)
 
 showToast = (msg, position) => {
     Toast.show(msg, {
