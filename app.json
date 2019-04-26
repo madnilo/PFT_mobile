@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "PowerFit",
-    "description": "-Corrige problema de toast não visivel no iphone X\n-Corrige problema de tela de avaliação física",
+    "description": "-Finaliza projeto",
     "slug": "build-001",
     "privacy": "unlisted",
     "sdkVersion": "31.0.0",
@@ -25,10 +25,11 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.skymotion.powerfit"
+      "bundleIdentifier": "com.agenciaacerte.powerfit"
     },
     "android": {
-      "package": "com.skymotion.powerfit"
+      "package": "com.agenciaacerte.powerfit",
+      "permissions": []
     },
     "androidStatusBar": {
       "backgroundColor": "#000000",
