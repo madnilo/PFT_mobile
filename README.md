@@ -1,10 +1,10 @@
-# Powerfit Fitness Tracker
+# PFT Fitness Tracker
 
-This is a React Native (Expo) sample project made as a MVP to a local Gym from Aracaju/SE, Brazil.
+This is a React Native (Expo) project made as a MVP to a local Gym.
 
-The ideia of the app is to provide a way to customers track their scheduled sessions, their fitness information, and be informed of events in the community.
+The idea of the app is to provide a way to customers track their scheduled sessions, their fitness information, and be informed of events in the community.
 
-The app is connected to a development API maintained by Agencia Acerte, a partner in this project. This API is hosted in DigitalOcean Free Plan and might take a while to warm up on the first request, but then it will run smoothly.
+The app is connected to a development API maintained a partner in this project. This API is hosted in DigitalOcean Free Plan and might take a while to warm up on the first request, but then it will run smoothly.
 
 The login info for the test user is:
 ```
