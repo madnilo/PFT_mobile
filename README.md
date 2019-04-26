@@ -4,7 +4,7 @@ This is a React Native (Expo) project made as a MVP to a local Gym.
 
 The idea of the app is to provide a way to customers track their scheduled sessions, their fitness information, and be informed of events in the community.
 
-The app is connected to a development API maintained a partner in this project. This API is hosted in DigitalOcean Free Plan and might take a while to warm up on the first request, but then it will run smoothly.
+The app is connected to a development API maintained by a partner in this project. This API is hosted in DigitalOcean Free Plan and might take a while to warm up on the first request, but then it will run smoothly.
 
 The login info for the test user is:
 ```
